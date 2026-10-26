@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Odyssey, in Order</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#e8eef0;--card:#f7fafa;--ink:#14232b;--mut:#4d6672;--acc:#7a1f3d;--on:#fff;--line:#a9bcc4;--ok:#1f7a5a;--bad:#a63224}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1a22;--card:#17252f;--ink:#e6eef0;--mut:#93aab5;--acc:#e08aa6;--on:#0f1a22;--line:#2f4553;--ok:#5fd1a0;--bad:#ff8f7a}}
+:root[data-theme=dark]{--bg:#0f1a22;--card:#17252f;--ink:#e6eef0;--mut:#93aab5;--acc:#e08aa6;--on:#0f1a22;--line:#2f4553;--ok:#5fd1a0;--bad:#ff8f7a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 'Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}
+main{max-width:680px;margin:0 auto;padding:22px 16px 0}
+h1{margin:0 0 8px;font-size:2rem;line-height:1.15;letter-spacing:-.01em}
+.in{color:var(--mut);margin:0 0 16px}
+.cap{color:var(--mut);font-style:italic;font-size:.9rem;margin:10px 0}
+ol{list-style:none;margin:0;padding:0;position:relative}
+ol:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:2px;background:var(--line)}
+.ev{position:relative;display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px;margin:0 0 8px}
+.n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--on);font:600 .8rem/28px system-ui,sans-serif;text-align:center}
+.tx{flex:1;min-width:0;font-size:.97rem;line-height:1.35}
+.ctl{display:flex;gap:4px;flex:none}
+.ctl>*{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font-size:.8rem;display:grid;place-items:center;padding:0;cursor:pointer}
+.grip{touch-action:none;cursor:grab;user-select:none;font-size:1.1rem}
+button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.drag{border-color:var(--acc);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.solved .n{background:var(--ok)}.solved .ctl{display:none}
+.bar{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 0;display:flex;gap:14px;align-items:center}
+#go{border:0;border-radius:10px;background:var(--acc);color:var(--on);font:600 1rem system-ui,sans-serif;padding:12px 20px;cursor:pointer;flex:none}
+#msg{font:.95rem/1.3 system-ui,sans-serif;color:var(--mut)}
+#msg.bad{color:var(--bad);animation:sk .3s}#msg.ok{color:var(--ok);font-weight:600}
+@keyframes sk{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media(prefers-reduced-motion:reduce){#msg.bad{animation:none}}
+</style></head><body><main>
+<h1>The Odyssey, in order</h1>
+<p class="in">Arrange every event in the order it happens in the story world, not the order Homer tells it. Drag the ⠿ handle or use ▲ ▼, then check your order. You’ll only learn whether the whole sequence is right, never which events are misplaced.</p>
+<div class="cap">Earliest at the top</div>
+<ol id="L"></ol>
+<div class="cap">Latest at the bottom</div>
+<div class="bar"><button id="go">Check my order</button><span id="msg" role="status" aria-live="polite"></span></div>
+</main>
+<script>
+const E=["With Athena’s help, Odysseus and his allies kill all the suitors; Phemius and Medon are spared","Odysseus meets the shades of Agamemnon, Achilles, and Ajax","Calypso holds Odysseus on her island for seven years","Odysseus speaks with his mother’s shade","Eumaeus the swineherd shelters Odysseus, who spins a false Cretan tale","Circe warns Odysseus of the perils ahead","Scylla seizes six men as the ship passes Charybdis","Antinous learns the ambush failed; Penelope scolds him","Penelope tests Odysseus with the secret of the bed, and they reunite","Odysseus reveals himself to Telemachus, and they plan the suitors’ deaths","Nausicaa finds Odysseus on the beach and directs him to the city","The suitors plot an ambush for Telemachus, and Penelope learns he is gone","Odysseus and Telemachus remove the weapons from the hall","Zeus wrecks the ship with a thunderbolt; Odysseus alone survives","Aeolus gives Odysseus the bag of winds","In the Underworld, Tiresias prophesies","Polyphemus traps Odysseus and his men in his cave and eats several","Storms strand the crew on Thrinacia until their food runs out","At Sparta, Menelaus and Helen host Telemachus; Menelaus reports that Odysseus is on Calypso’s island","Odysseus, tied to the mast, hears the Sirens","Odysseus blinds Polyphemus, escapes under the rams, and draws Poseidon’s curse","Odysseus reveals his name and tells the Phaeacians of his wanderings","On Zeus’ orders, Hermes tells Calypso to free Odysseus","Odysseus reveals himself to Eumaeus and Philoetius","Nestor welcomes Telemachus at Pylos and tells of the Greeks’ homecomings","Athena urges Telemachus to confront the suitors and seek news of his father","While Poseidon is away, Athena pleads for Odysseus and Zeus agrees to his return","After a year with Circe, Odysseus is told to consult the dead Tiresias","Odysseus builds a raft and sails for seventeen days","Troy is sacked","Odysseus finds Laertes in the orchard and reveals himself","Telemachus sails home with Theoclymenus, evading the ambush","Within sight of Ithaca, the crew opens the bag and the fleet is blown back","As a youth, Odysseus is gashed by a boar on Mount Parnassus","The suitors fail to string the bow Penelope brings out","Omens and Theoclymenus’ vision of doom unsettle the suitors","Odysseus strings the bow and shoots through the twelve axes","Eupeithes leads the suitors’ kin against Odysseus; Athena and Zeus impose peace","Telemachus secretly sails for Pylos with Athena as Mentor","Antinous strikes Odysseus with a stool as he begs in the hall","Odysseus speaks with Penelope in disguise","The Lotus-Eaters nearly make Odysseus’ men forget their journey home","Argos recognizes his master and dies","Odysseus defeats the beggar Irus; Penelope appears and collects gifts","The Laestrygonians sink eleven ships; only Odysseus’ escapes","Penelope announces she will marry whoever strings Odysseus’ bow","Circe turns Eurylochus’ scouting party into swine","Odysseus leaves Ithaca for Troy, parting from Penelope and infant Telemachus","Odysseus flees the swarming dead","Odysseus kills Antinous and reveals himself","Odysseus is swept back to Charybdis, then drifts nine days to Calypso","The disloyal maids are hanged and Melanthius is mutilated and killed","The Greeks build the wooden horse; Helen mimics the wives’ voices outside it","The Phaeacians land the sleeping Odysseus on Ithaca","Odysseus overpowers Circe and frees his men","While Odysseus sleeps, the crew slaughter Helios’ cattle","The Greek fleets leave Troy separately","Athena disguises Odysseus as a beggar and plots with him","Demodocus the bard sings of Troy and Odysseus weeps","Odysseus supplicates Queen Arete in the Phaeacian palace","Eurycleia recognizes Odysseus by his scar while washing his feet"],N=E.length,HV="1h5dndlw5kd",hf=s=>{let a=0xdeadbeef,b=0x41c6ce57;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);a=Math.imul(a^c,2654435761);b=Math.imul(b^c,1597334677)}
+a=Math.imul(a^(a>>>16),2246822507)^Math.imul(b^(b>>>13),3266489909);b=Math.imul(b^(b>>>16),2246822507)^Math.imul(a^(a>>>13),3266489909);return (4294967296*(2097151&b)+(a>>>0)).toString(36)};
+const L=document.getElementById('L'),M=document.getElementById('msg'),go=document.getElementById('go');
+let tries=0,done=false;
+const cur=()=>[...L.children].map(l=>+l.dataset.i);
+const ok=()=>hf(cur().map(i=>E[i]).join('\n'))===HV;
+const num=()=>[...L.children].forEach((l,k)=>l.querySelector('.n').textContent=k+1);
+function say(t,c){M.className='';void M.offsetWidth;M.className=c||'';M.textContent=t}
+function shuffle(){const a=E.map((_,i)=>i);do{for(let i=N-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}}while((()=>{return hf(a.map(i=>E[i]).join('\n'))===HV})());return a}
+function build(a){L.innerHTML='';a.forEach(i=>{const li=document.createElement('li');li.className='ev';li.dataset.i=i;
+li.innerHTML='<span class="n"></span><span class="tx"></span><span class="ctl"><button class="up" aria-label="Move earlier">▲</button><button class="dn" aria-label="Move later">▼</button><span class="grip" title="Drag to reorder">⠿</span></span>';li.querySelector('.tx').textContent=E[i];L.append(li)});num()}
+function reset(){done=false;tries=0;L.classList.remove('solved');build(shuffle());go.textContent='Check my order';say('')}
+L.onclick=e=>{const b=e.target.closest('button');if(!b||done)return;const li=b.closest('li');
+if(b.classList.contains('up')&&li.previousElementSibling)L.insertBefore(li,li.previousElementSibling);
+else if(b.classList.contains('dn')&&li.nextElementSibling)L.insertBefore(li.nextElementSibling,li);
+num();b.focus()};
+L.onpointerdown=e=>{const g=e.target.closest('.grip');if(!g||done)return;e.preventDefault();
+const li=g.closest('li');g.setPointerCapture(e.pointerId);li.classList.add('drag');let y=e.clientY;
+const place=()=>{let m=true;while(m){m=false;const p=li.previousElementSibling,n=li.nextElementSibling;
+if(p){const r=p.getBoundingClientRect();if(y<r.top+r.height/2){li.after(p);m=true;continue}}
+if(n){const r=n.getBoundingClientRect();if(y>r.top+r.height/2){li.before(n);m=true}}}num()};
+const tick=setInterval(()=>{if(y<70)scrollBy(0,-14);else if(y>innerHeight-70)scrollBy(0,14);else return;place()},16);
+const mv=ev=>{y=ev.clientY;place()};
+const up=()=>{clearInterval(tick);li.classList.remove('drag');g.removeEventListener('pointermove',mv);g.removeEventListener('pointerup',up);g.removeEventListener('pointercancel',up)};
+g.addEventListener('pointermove',mv);g.addEventListener('pointerup',up);g.addEventListener('pointercancel',up)};
+go.onclick=()=>{if(done){reset();return}tries++;
+if(ok()){done=true;L.classList.add('solved');go.textContent='Start a new round';say('Correct! All '+N+' events are in order, solved in '+tries+(tries>1?' attempts.':' attempt.'),'ok')}
+else say('That order isn’t right yet. Rearrange and check again. (Attempt '+tries+')','bad')};
+reset();
+</script></body></html>
